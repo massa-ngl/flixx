@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Discover popular movies and TV shows, explore detailed info, and search titles using live TMDB data — all in one sleek Vanilla JS app." />
+  <meta content="Flixx massa-ngl" property="og:title" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://flixx-massa-ngl.netlify.app/" />
+  <link rel="stylesheet" href="./css/dist/output.css">
+  <link rel="stylesheet" href="./css/spinner.css">
+  <link rel="stylesheet" href="./lib/swiper.css">
+  <script src="./lib/swiper.js"></script>
+  <script src="https://kit.fontawesome.com/3f769895cf.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/images/tv-solid-full.svg" type="image/x-icon">
+  <script src="./js/script.js" defer></script>
+  <title>Flixx | Movie Details</title>
+</head>
+<body class="bg-[#020d18] text-gray-100 list-none h-full w-full overflow-x-hidden scroll-smooth">
+  <!-- Header -->
+  <header class="backdrop-blur-lg bg-black/30 shadow-[2px_2px_8px_#0a4b8f] py-5 px-0 fixed z-999 top-0 left-0 right-0 w-full">
+    <div class="container flex justify-between items-center w-full max-w-300 my-0 mx-auto py-0 px-5">
+      
+      <div class="logo">
+        <a href="/">
+          <span class="font-bold text-2xl uppercase text-gray-100">flixx</span>
+        </a>
+      </div>
+
+      <nav>
+        <ul class="flex items-center justify-between gap-2">
+          <li class="text-md text-gray-100 hover:text-[#f1c40f] transition-colors duration-800 ease-in-out"><a class="nav-link" href="/">Movies</a></li>
+          <li class="text-md text-gray-100 hover:text-[#f1c40f] transition-colors duration-800 ease-in-out"><a class="nav-link" href="/shows.html">TV Shows</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="movie-details" class="translate-y-30 w-full">
+    <!-- <section>
+      <div class="container w-full max-w-300 my-0 mx-auto py-0 px-5">
+        <a href="/index.html" class="back-btn capitalize px-4.5 py-1 cursor-pointer rounded-[5px] hover:bg-[#f1c40f] hover:text-black border border-[#f1c40f] bg-black text-white transition-all duration-800 ease-in-out">back to movies</a>
+      </div>
+
+      <div class="container w-full max-w-300 mt-12 mx-auto py-0 px-5 flex flex-col lg:flex-row justify-center items-center gap-8">
+        <div class="image_sec flex-1 p-0">
+          <img class="w-full bg-cover" src="/images/no-image.jpg" alt="no image">
+        </div>
+
+        <div class="text_sec flex-[350px] text-center md:text-left">
+          <div class="movie_title mb-4">
+            <h3 class="text-center uppercase font-bold text-gray-200 text-2xl">movie title</h3>
+          </div>
+          
+          <div class="rating">
+            <i class="fas fa-star text-[#f1c40f]"></i> 8 / 10
+          </div>
+
+          <div class="release_date mt-4">Release Date: XX/XX/XXX</div>
+          
+          <div class="description mt-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nam molestiae incidunt quaerat dolore reiciendis dolor dignissimos amet, illo pariatur voluptatem, ab tenetur quibusdam veritatis laudantium atque architecto minus voluptatum dolorum impedit aperiam consectetur in. Culpa dicta, saepe enim explicabo dolore cupiditate quae vitae reiciendis nobis ipsum ab itaque sapiente.
+          </div>
+          
+          <div class="genres mt-4 flex justify-center items-center gap-4 md:block">
+            <h4>Genres: </h4>
+            <ul class="flex items-center justify-center gap-2 md:block">
+              <li>Genre 1,</li>
+              <li>Genre 2,</li>
+              <li>Genre 3</li>
+            </ul>
+          </div>
+          <div class="homepage-btn mt-6 flex justify-center items-center md:block">
+            <div class="movie_website max-w-fit capitalize px-4.5 py-1 cursor-pointer rounded-[5px] hover:bg-[#f1c40f] hover:text-black border border-[#f1c40f] bg-black text-white transition-all duration-800 ease-in-out"><a href="#" target="_blank">visit movie homepage</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h3 class="text-center uppercase font-bold text-gray-200 text-2xl">movie info</h3>
+      <div class="container w-full max-w-300 my-0 mx-auto py-0 px-5">
+        <div class="budget border-b border-gray-500 py-2">
+          <span class="text-[#f1c40f]  font-semibold">Budget: </span>$1,000,000
+        </div>
+        <div class="revenue border-b border-gray-500 py-2">
+          <span class="text-[#f1c40f]  font-semibold">Revenue: </span>$2,000,000
+        </div>
+        <div class="runtime border-b border-gray-500 py-2">
+          <span class="text-[#f1c40f]  font-semibold">Runtime: </span>90 minutes
+        </div>
+        <div class="status border-b border-gray-500 py-2">
+          <span class="text-[#f1c40f]  font-semibold">Status: </span>Released
+        </div>
+        <div class="production_companies pt-2">
+          <h4 class="font-semibold">Production Companies</h4>
+          <p>Company 1, Company 2, Company 3</p>
+        </div>
+      </div>
+    </section> -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="translate-y-28 w-full my-4 py-8">
+    <div class="container flex justify-between items-center w-full max-w-300 my-0 mx-auto py-0 px-5">
+      <h3 class="font-bold text-2xl uppercase text-gray-100">flixx</h3>
+      <div class="icons flex items-center justify-between gap-4 text-xl">
+        <a href="https://www.facebook.com" target="_blank">
+          <i class="fab fa-facebook cursor-pointer hover:text-[#f1c40f] transition-colors duration-600 ease-in-out"></i>
+        </a>
+        <a href="https://www.x.com" target="_blank">
+          <i class="fab fa-twitter cursor-pointer hover:text-[#f1c40f] transition-colors duration-600 ease-in-out"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <i class="fab fa-instagram cursor-pointer hover:text-[#f1c40f] transition-colors duration-600 ease-in-out"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Spinner Container -->
+  <div class="spinner"></div>
+
+</body>
+</html>

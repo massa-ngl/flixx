@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+*,
+*::before,
+*::after {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #020d18;
+  --secondary-color: #f1c40f;
+}
+
+/* .container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+} */
+
+.active {
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+/* SECTION: NOW PLAYING */
+.now-playing {
+  background: url(/images/showcase-bg.jpg) no-repeat center center/cover;
+}
+
+.swiper-slide {
+  background: var(--color-primary);
+}
+
+/* .alert {
+  background: #F00;
+} */
+
+/* header {
+  box-shadow: 2px 2px 8px #0a4b8f;
+} */
+
+.alert {
+  background-color: red;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background: #575757;
+}
+
+.error {
+  background: #f00;
+  /* flex items-center justify-center text-center */
+}

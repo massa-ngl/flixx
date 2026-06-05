@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Discover popular movies and TV shows, explore detailed info, and search titles using live TMDB data — all in one sleek Vanilla JS app." />
+  <meta content="Flixx massa-ngl" property="og:title" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://flixx-massa-ngl.netlify.app/" />
+  <link rel="stylesheet" href="./css/dist/output.css">
+  <link rel="stylesheet" href="./css/spinner.css">
+  <link rel="stylesheet" href="./lib/swiper.css">
+  <script src="./lib/swiper.js"></script>
+  <script src="https://kit.fontawesome.com/3f769895cf.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <script src="./js/script.js" defer></script>
+  <title>Flixx | Search</title>
+</head>
+  <body class="bg-[#020d18] text-gray-100 list-none h-full w-full overflow-x-hidden scroll-smooth">
+    <!-- Header -->
+  <header class="backdrop-blur-lg bg-black/30 shadow-[2px_2px_8px_#0a4b8f] py-5 px-0 fixed z-999 top-0 left-0 right-0 w-full">
+    <div class="container flex justify-between items-center w-full max-w-300 my-0 mx-auto py-0 px-5">
+      
+      <div class="logo">
+        <a href="/">
+          <span class="font-bold text-2xl uppercase text-gray-100">flixx</span>
+        </a>
+      </div>
+
+      <nav>
+        <ul class="flex items-center justify-between gap-2">
+          <li class="text-md text-gray-100 hover:text-[#f1c40f] transition-colors duration-800 ease-in-out"><a class="nav-link" href="/">Movies</a></li>
+          <li class="text-md text-gray-100 hover:text-[#f1c40f] transition-colors duration-800 ease-in-out"><a class="nav-link" href="/shows.html">TV Shows</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+    <main class="translate-y-30 w-full">
+      <!-- Search (Movie / TV) -->
+      <section class="search w-full">
+        <div class="container w-full max-w-300 my-0 mx-auto py-0 px-5">
+        <div id="alert" class="flex items-center justify-center transition-all duration-800 ease-in-out"></div>
+
+          <form action="/search.html" class="search-form px-0 sm:px-30 md:px-45 lg:px-75">
+            <div class="search-radio flex gap-8">
+              <div class="movie-radio">
+                <input type="radio" id="movie" name="type" value="movie" checked />
+                <label for="movies">Movies</label>
+              </div>
+              <div class="tv-radio">
+                <input type="radio" id="tv" name="type" value="tv" />
+                <label for="shows">TV Shows</label>
+              </div>
+            </div>
+            <div class="search-flex mt-2.5 flex justify-between items-center gap-2">
+              <input type="text" name="search-term" id="search-term" placeholder="Enter search term" class="flex-6 h-12.5 focus:outline-none placeholder:text-white p-2.5 rounded-[5px] border border-white bg-transparent w-full"/>
+              <button type="submit" class="btn inline-block px-4.5 py-3.25 sm:py-3.25 sm:px-9 cursor-pointer rounded-[5px] bg-[#f1c40f] text-black border hover:border-[#f1c40f] hover:bg-black hover:text-white transition-all duration-800 ease-in-out">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Search Results -->
+      <section class="popular-movies mt-4 w-full">
+        <div id="search-results-heading"></div>
+        <div id="search-results" class="container w-full max-w-300 my-0 mx-auto py-0 px-5 mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <!-- <div class="card border-4 border-[#04376b]  hover:scale-105 hover:bg-[#0a4b8f] transition-all duration-600 ease-in-out">
+            <a href="#" class="cursor-pointer">
+              <img src="/images/no-image.jpg" alt="movie has no image">
+            </a>
+            <div class="bg-[#04376b] p-2">
+              <h3 class="font-bold text-white-text-xl capitalize">movie title / show name</h3>
+              <p class="capitalize">released / aired: <span>XX/XX/XXXX</span></p>
+            </div>
+          </div>
+
+          <div class="card border-4 border-[#04376b]  hover:scale-105 hover:bg-[#0a4b8f] transition-all duration-600 ease-in-out">
+            <a href="#" class="cursor-pointer">
+              <img src="/images/no-image.jpg" alt="movie has no image">
+            </a>
+            <div class="bg-[#04376b] p-2">
+              <h3 class="font-bold text-white-text-xl capitalize">movie title / show name</h3>
+              <p class="capitalize">released / aired: <span>XX/XX/XXXX</span></p>
+            </div>
+          </div>
+
+          <div class="card border-4 border-[#04376b]  hover:scale-105 hover:bg-[#0a4b8f] transition-all duration-600 ease-in-out">
+            <a href="#" class="cursor-pointer">
+              <img src="/images/no-image.jpg" alt="movie has no image">
+            </a>
+            <div class="bg-[#04376b] p-2">
+              <h3 class="font-bold text-white-text-xl capitalize">movie title / show name</h3>
+              <p class="capitalize">released / aired: <span>XX/XX/XXXX</span></p>
+            </div>
+          </div>
+
+          <div class="card border-4 border-[#04376b]  hover:scale-105 hover:bg-[#0a4b8f] transition-all duration-600 ease-in-out">
+            <a href="#" class="cursor-pointer">
+              <img src="/images/no-image.jpg" alt="movie has no image">
+            </a>
+            <div class="bg-[#04376b] p-2">
+              <h3 class="font-bold text-white-text-xl capitalize">movie title / show name</h3>
+              <p class="capitalize">released / aired: <span>XX/XX/XXXX</span></p>
+            </div>
+          </div>
+
+          <div class="card border-4 border-[#04376b]  hover:scale-105 hover:bg-[#0a4b8f] transition-all duration-600 ease-in-out">
+            <a href="#" class="cursor-pointer">
+              <img src="/images/no-image.jpg" alt="movie has no image">
+            </a>
+            <div class="bg-[#04376b] p-2">
+              <h3 class="font-bold text-white-text-xl capitalize">movie title / show name</h3>
+              <p class="capitalize">released / aired: <span>XX/XX/XXXX</span></p>
+            </div>
+          </div> -->
+      </div>
+
+      <div id="pagination" class="navigate-pages mt-6">
+        <!-- <div class="container w-full max-w-300 my-0 mx-auto py-0 px-5 mt-2">
+          <div class="">
+            <button class="prev capitalize max-w-fit px-4.5 py-1 cursor-pointer rounded-[5px] hover:bg-[#f1c40f] hover:text-black border border-[#f1c40f] bg-black text-white transition-all duration-800 ease-in-out">prev</button>
+            <button class="next capitalize max-w-fit px-4.5 py-1 cursor-pointer rounded-[5px] hover:bg-[#f1c40f] hover:text-black border border-[#f1c40f] bg-black text-white transition-all duration-800 ease-in-out">next</button>
+          </div>
+          <div class="mt-2">
+            Page 
+            <span class="active_page_number">1</span> of
+            <span class="total_page_number">5</span>
+          </div>
+        </div> -->
+      </div>
+      
+      </section>
+    </main>
+
+    <!-- Footer -->
+  <footer class="translate-y-28 w-full my-4 py-8">
+    <div class="container flex justify-between items-center w-full max-w-300 my-0 mx-auto py-0 px-5">
+      <h3 class="font-bold text-2xl uppercase text-gray-100">flixx</h3>
+      <div class="icons flex items-center justify-between gap-4 text-xl">
+        <a href="https://www.facebook.com" target="_blank">
+          <i class="fab fa-facebook cursor-pointer hover:text-[#f1c40f] transition-colors duration-600 ease-in-out"></i>
+        </a>
+        <a href="https://www.x.com" target="_blank">
+          <i class="fab fa-twitter cursor-pointer hover:text-[#f1c40f] transition-colors duration-600 ease-in-out"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <i class="fab fa-instagram cursor-pointer hover:text-[#f1c40f] transition-colors duration-600 ease-in-out"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Spinner Container -->
+  <div class="spinner"></div>
+  </body>
+</html>
