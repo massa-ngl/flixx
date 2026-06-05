@@ -361,7 +361,6 @@ function initSwiper() {
 async function search() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  // console.log(urlParams.get('search-term'));
 
   global.search.type = urlParams.get("type");
   global.search.term = urlParams.get("search-term");
@@ -373,11 +372,6 @@ async function search() {
 
     // global.search.page = pages;
     global.search.totalPages = total_pages;
-
-    // console.log('Total Results ' + total_results);
-    // console.log('Page ' + pages);
-    // console.log('Total Pages ' + total_pages);
-    // console.log('Results ' + results);
 
     if (results.length === 0) {
       showAlert("No results found", "alert-success");
